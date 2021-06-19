@@ -8,6 +8,7 @@ import {movies} from '../movie-list/movies'
 })
 export class MovieDetailComponent implements OnInit {
 public movieid:string;
+public movie:string;
   constructor(private router:Router,  private route: ActivatedRoute) {
     if (this.route.snapshot.paramMap.get('imdbID')) {
       this.movieid = this.route.snapshot.paramMap.get('imdbID');
@@ -17,6 +18,7 @@ public movieid:string;
   ngOnInit() {
    let movie= movies.find(x=>x.imdbID==this.movieid);
     console.log(movie);
+    this.movie=JSON.stringify(movie);
   }
 
 }
