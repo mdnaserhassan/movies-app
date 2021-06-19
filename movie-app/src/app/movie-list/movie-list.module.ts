@@ -9,14 +9,17 @@ import {
 } from "@progress/kendo-angular-grid";
 import { InputsModule } from "@progress/kendo-angular-inputs";
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { DropdownlistfilterComponent } from './dropdownlistfilter/dropdownlistfilter.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 @NgModule({
-  declarations: [MovieListComponent, MovieDetailComponent],
+  declarations: [MovieListComponent, MovieDetailComponent, DropdownlistfilterComponent],
   imports: [
     CommonModule,
     GridModule,
     RoutingModule,
     // ChartsModule,
-    InputsModule
+    InputsModule,
+    DropDownsModule
   ],
   exports:[MovieListComponent],
   entryComponents:[MovieListComponent]

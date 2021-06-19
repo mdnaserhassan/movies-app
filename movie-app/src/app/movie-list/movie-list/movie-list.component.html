@@ -1,4 +1,4 @@
-<kendo-grid
+<kendo-grid [style.height.%]="100"
 [data]="gridData"
 [pageSize]="state.take"
 [skip]="state.skip"
@@ -9,15 +9,6 @@
 [filterable]="true"
 (dataStateChange)="dataStateChange($event)"
 >
-<ng-template kendoGridToolbarTemplate>
-  <input
-    placeholder="Search ..."
-    kendoTextBox
-    (input)="onFilter($event.target.value)"
-  />
-  <!-- <kendo-grid-spacer></kendo-grid-spacer> -->
-
-</ng-template>
 
 <kendo-grid-command-column title="Action" width="40">
   <ng-template kendoGridCellTemplate let-dataItem>
@@ -28,8 +19,28 @@
 <kendo-grid-column [filterable]="true" field="Title" title="Title" width="40" >
 </kendo-grid-column>
 <kendo-grid-column [filterable]="true" field="Language" title="Language" width="40">
+  <ng-template kendoGridFilterCellTemplate let-filter>
+    <my-dropdown-filter
+        [filter]="filter"
+        [data]="distinctLanguage"
+        textField="key"
+        valueField="Language"
+        >
+    </my-dropdown-filter>
+</ng-template>
 </kendo-grid-column>
 <kendo-grid-column [filterable]="true" field="listingType" title="listingType" width="40">
+</kendo-grid-column>
+<kendo-grid-column field="Location" title="Location" width="40">
+  <ng-template kendoGridFilterCellTemplate let-filter>
+    <my-dropdown-filter
+        [filter]="filter"
+        [data]="distinctLocation"
+        textField="key"
+        valueField="Location"
+        >
+    </my-dropdown-filter>
+</ng-template>
 </kendo-grid-column>
 <kendo-grid-column [filterable]="true" field="imdbRating" title="imdbRating" width="40">
 </kendo-grid-column>

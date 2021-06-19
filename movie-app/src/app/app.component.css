@@ -3,7 +3,11 @@
 }
 
 kendo-drawer-content {
-  height: 500px;
   overflow: auto;
   padding-left: 10px;
+  height: 100%;
+}
+html,
+body,app-root{
+  height: 100%;
 }
