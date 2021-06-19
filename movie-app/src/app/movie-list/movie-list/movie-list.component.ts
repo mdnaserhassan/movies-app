@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataBindingDirective } from '@progress/kendo-angular-grid';
+import {movies} from './movies'
+import { process } from "@progress/kendo-data-query";
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -7,9 +10,66 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,  private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  @ViewChild(DataBindingDirective) dataBinding: DataBindingDirective;
+  public gridData: any[] = movies;
+  public gridView: any[];
+
+  public mySelection: string[] = [];
+
+  public ngOnInit(): void {
+    this.gridView = this.gridData;
+  }
+
+  public onFilter(inputValue: string): void {
+    this.gridView = process(this.gridData, {
+      filter: {
+        logic: "or",
+        filters: [
+          {
+            field: "Title",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "Language",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "listingType",
+            operator: "contains",
+            value: inputValue,
+          },
+          {
+            field: "imdbRating",
+            operator: "contains",
+            value: inputValue,
+          },
+        ],
+      },
+    }).data;
+
+    this.dataBinding.skip = 0;
+  }
+  EditMovie(dataitem:any):any{
+
+    this.router.navigate(['/movielist/moviedetail']);
+
+  }
+  private photoURL(dataItem: any): string {
+    const code: string = dataItem.img_id + dataItem.gender;
+    const image: any = images;
+
+    return image[code];
+  }
+
+  private flagURL(dataItem: any): string {
+    const code: string = dataItem.country;
+    const image: any = images;
+
+    return image[code];
   }
 
 }
