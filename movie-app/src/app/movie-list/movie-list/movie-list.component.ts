@@ -58,18 +58,7 @@ export class MovieListComponent implements OnInit {
     this.router.navigate(['/movielist/moviedetail']);
 
   }
-  private photoURL(dataItem: any): string {
-    const code: string = dataItem.img_id + dataItem.gender;
-    const image: any = images;
 
-    return image[code];
-  }
 
-  private flagURL(dataItem: any): string {
-    const code: string = dataItem.country;
-    const image: any = images;
-
-    return image[code];
-  }
 
 }
