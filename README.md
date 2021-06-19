@@ -1,3 +1,3 @@
 # movies-app
-Do npm i 
+Do npm i then
 npm run start
