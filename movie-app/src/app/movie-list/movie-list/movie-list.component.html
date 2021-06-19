@@ -1,15 +1,13 @@
 <kendo-grid
-[kendoGridBinding]="gridView"
-kendoGridSelectBy="id"
-[selectedKeys]="mySelection"
-[pageSize]="20"
-[pageable]="true"
+[data]="gridData"
+[pageSize]="state.take"
+[skip]="state.skip"
+[sort]="state.sort"
+[filter]="state.filter"
 [sortable]="true"
-[groupable]="true"
-[reorderable]="true"
-[resizable]="true"
-[height]="810"
-[columnMenu]="{ filter: true }"
+[pageable]="true"
+[filterable]="true"
+(dataStateChange)="dataStateChange($event)"
 >
 <ng-template kendoGridToolbarTemplate>
   <input
@@ -27,13 +25,13 @@ kendoGridSelectBy="id"
     <button kendoGridEditCommand (click)=EditMovie(dataItem) [primary]="true">Edit</button>
   </ng-template>
 </kendo-grid-command-column>
-<kendo-grid-column field="Title" title="Title" width="40" >
+<kendo-grid-column [filterable]="true" field="Title" title="Title" width="40" >
 </kendo-grid-column>
-<kendo-grid-column field="Language" title="Language" width="40">
+<kendo-grid-column [filterable]="true" field="Language" title="Language" width="40">
 </kendo-grid-column>
-<kendo-grid-column field="listingType" title="listingType" width="40">
+<kendo-grid-column [filterable]="true" field="listingType" title="listingType" width="40">
 </kendo-grid-column>
-<kendo-grid-column field="imdbRating" title="imdbRating" width="40">
+<kendo-grid-column [filterable]="true" field="imdbRating" title="imdbRating" width="40">
 </kendo-grid-column>
 
 

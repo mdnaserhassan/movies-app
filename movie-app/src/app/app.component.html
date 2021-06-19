@@ -1,19 +1,28 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!-- <a routerLink="movielist">movielist</a> -->
-<a class="nav-link" routerLink="">
-  Home
-</a>
+<div class="demo-header">
+  <button
+    kendoButton
+    icon="menu"
+    look="flat"
+    styles="font-size: 24px;"
+    (click)="drawer.toggle()"
+  ><span class="k-i-menu k-icon"></span></button>
+</div>
+<kendo-drawer-container>
+  <kendo-drawer
+    #drawer
+    [items]="items"
+    [mini]="true"
+    [mode]="'push'"
+    [(expanded)]="expanded"
+  >
+    <ng-template kendoDrawerItemTemplate let-item>
+      <div class="k-drawer-link" [routerLink]="item.path">
+        <span>{{ item.text }}</span>
+      </div>
+    </ng-template>
+  </kendo-drawer>
 
-<a style="padding-left: 50px;" class="nav-link" routerLink="/movielist">
-  movielist
-</a>
-
-        <div style="text-align:center">
-          <h1>
-            Welcome to {{ title }}!
-         </h1>
-          </div>
-          <router-outlet></router-outlet>
-
-
-
+  <kendo-drawer-content>
+    <router-outlet></router-outlet>
+  </kendo-drawer-content>
+</kendo-drawer-container>

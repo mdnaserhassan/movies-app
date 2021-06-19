@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 
@@ -16,9 +19,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     GridModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule,
+    LayoutModule
   ],
-  providers: [],
+  providers: [ {
+    provide: APP_BASE_HREF,
+    useValue: window.location.pathname,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
