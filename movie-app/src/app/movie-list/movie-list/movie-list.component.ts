@@ -55,7 +55,7 @@ export class MovieListComponent implements OnInit {
   }
   EditMovie(dataitem:any):any{
 
-    this.router.navigate(['/movielist/moviedetail']);
+    this.router.navigate([`/movielist/moviedetail/${dataitem.imdbID}`]);
 
   }
 
