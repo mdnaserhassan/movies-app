@@ -1,5 +1,12 @@
 .demo-header {
   padding: 5px;
+  width: 100%;
+  background-color: #f6f6f6;
+  line-height: 10px;
+  border-bottom: inset;
+  border-bottom-width: 1px;
+  padding: 3px 8px;
+  color: #656565;
 }
 
 kendo-drawer-content {

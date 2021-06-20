@@ -15,14 +15,21 @@ export class AppComponent {
   public expanded = false;
   constructor(private router: Router) {
     const routes: any[] = router.config;
-
-    routes.forEach((route) => {
-      this.items.push({
-        text: route.text,
-        path: route.path ? route.path : "",
-      });
-    });
-
+    this.items = this.mapItems(router.config);
     this.items[0].selected = true;
+
+  }
+  public onSelect(ev: DrawerSelectEvent): void {
+    this.router.navigate([ev.item.path]);
+  }
+
+  public mapItems(routes: any[], path?: string): any[] {
+    return routes.map((item) => {
+      return {
+        text: item.text,
+        icon: item.icon,
+        path: item.path ? item.path : "",
+      };
+    });
   }
 }
