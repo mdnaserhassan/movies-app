@@ -1,0 +1,27 @@
+<div class="demo-header">
+  <button
+    kendoButton
+    icon="menu"
+    look="flat"
+    styles="font-size: 24px;"
+    (click)="drawer.toggle()"
+  ><span class="k-i-menu k-icon"></span></button>
+  <span class="mail-box">Movie manger</span>
+</div>
+<kendo-drawer-container>
+  <kendo-drawer
+    #drawer
+    [items]="items"
+    [mini]="true"
+    [mode]="'push'"
+    [(expanded)]="expanded"
+    (select)="onSelect($event)"
+
+  >
+
+  </kendo-drawer>
+
+  <kendo-drawer-content>
+    <router-outlet></router-outlet>
+  </kendo-drawer-content>
+</kendo-drawer-container>

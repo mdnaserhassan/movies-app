@@ -1,0 +1,10 @@
+{
+    "/Movies": {
+    "target": "https://localhost:5007/MovieApi/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+
+
+}
