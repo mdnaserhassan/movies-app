@@ -18,7 +18,9 @@ public movie:string;
   ngOnInit() {
    let movie= movies.find(x=>x.imdbID==this.movieid);
     console.log(movie);
+    console.log(movies);
     this.movie=JSON.stringify(movie);
   }
 
 }
+

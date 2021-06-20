@@ -16,28 +16,28 @@
     <button kendoGridEditCommand (click)=EditMovie(dataItem) [primary]="true">Edit</button>
   </ng-template>
 </kendo-grid-command-column>
-<kendo-grid-column [filterable]="true" field="Title" title="Title" width="40" >
+<kendo-grid-column [filterable]="true" field="title" title="title" width="40" >
 </kendo-grid-column>
-<kendo-grid-column [filterable]="true" field="Language" title="Language" width="40">
+<kendo-grid-column [filterable]="true" field="language" title="language" width="40">
   <ng-template kendoGridFilterCellTemplate let-filter>
     <my-dropdown-filter
         [filter]="filter"
         [data]="distinctLanguage"
         textField="key"
-        valueField="Language"
+        valueField="language"
         >
     </my-dropdown-filter>
 </ng-template>
 </kendo-grid-column>
 <kendo-grid-column [filterable]="true" field="listingType" title="listingType" width="40">
 </kendo-grid-column>
-<kendo-grid-column field="Location" title="Location" width="40">
+<kendo-grid-column field="location" title="location" width="40">
   <ng-template kendoGridFilterCellTemplate let-filter>
     <my-dropdown-filter
         [filter]="filter"
         [data]="distinctLocation"
         textField="key"
-        valueField="Location"
+        valueField="location"
         >
     </my-dropdown-filter>
 </ng-template>

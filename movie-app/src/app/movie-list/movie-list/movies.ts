@@ -1,5 +1,5 @@
-
-  export const movies = [
+import { Movie } from "../movie";
+  export const movies:Movie[] = [
         {
             "Language": "ENGLISH",
             "Location": "PUNE",

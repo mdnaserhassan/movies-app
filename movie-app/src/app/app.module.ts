@@ -8,8 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { APP_BASE_HREF } from '@angular/common';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,8 @@ import { APP_BASE_HREF } from '@angular/common';
     GridModule,
     BrowserAnimationsModule,
     NgbModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule
   ],
   providers: [ {
     provide: APP_BASE_HREF,
