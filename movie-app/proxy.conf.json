@@ -1,22 +1,10 @@
 {
-  "/api/*": {
-    "target": "https://localhost:5007/movieapi/movies",
+    "/Movies": {
+    "target": "https://localhost:5007/MovieApi/",
     "secure": false,
-    "logLevel": "debug"
-  },
-  "/api": {
-    "target": "https://localhost:5007/movieapi/movies",
-    "secure": false,
-    "logLevel": "debug"
-  },
-  "/movieapi": {
-    "target": "https://localhost:5007",
-    "secure": false,
-    "logLevel": "debug"
-  },
-  "/movieapi/movies": {
-    "target": "https://localhost:5007",
-    "secure": false,
+    "changeOrigin": true,
     "logLevel": "debug"
   }
+
+
 }

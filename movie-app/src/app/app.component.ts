@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   public mapItems(routes: any[], path?: string): any[] {
-    return routes.map((item) => {
+    return routes.filter(p=>p.text!='').map((item) => {
       return {
         text: item.text,
         icon: item.icon,
